@@ -1,0 +1,27 @@
+﻿@model List<PhotoModel>
+@{
+    ViewData["Title"] = "Photo-List";
+}
+
+<h1>PhotoBoom</h1>
+<br />
+<br />
+@if (Model == null || Model.Count < 1)
+{
+    <p>You don’t have any photos yet :(</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var photo in Model)
+        {
+            <div class="col-lg-3">
+                <a href="@Url.Action("Detail", "Photo", new {photoId=photo.PhotoId})"><img src="/image/@photo.Name" height="200" width="200" /></a>
+            </div>
+            <input type="hidden" value="@photo.PhotoId" />
+        }
+    </div>
+}
+<br />
+<br />
+<a href="/Photo/Add"><b><u>Add Photo</u></b></a>

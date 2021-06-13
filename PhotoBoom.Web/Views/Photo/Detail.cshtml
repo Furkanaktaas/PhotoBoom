@@ -1,0 +1,22 @@
+﻿@model PhotoModel
+@{
+    ViewData["Title"] = "Photo-Detail";
+}
+
+<br />
+<h3>@Model.Title</h3>
+
+<span>
+    Tags: @Model.Tag
+</span>
+<br />
+
+<div class="row">
+    <div class="col-lg-3">
+        <img src="/image/@Model.Name" height="200" width="200" />
+    </div>
+</div>
+<br />
+<br />
+
+<a href="@Url.Action("Delete", "Photo", new {photoId=Model.PhotoId})"><b><u>Delete Photos</u></b></a>
